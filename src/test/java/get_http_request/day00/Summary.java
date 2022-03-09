@@ -1,4 +1,4 @@
-package get_http_request;
+package get_http_request.day00;
 
 public class Summary {
     /*

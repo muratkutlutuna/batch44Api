@@ -1,9 +1,10 @@
-package get_http_request.day08;
+package get_http_request.day09;
 
 import base_url.JsonPlaceHolderBaseUrl;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
+import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
 
@@ -11,8 +12,9 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
-public class GetRequest20 extends JsonPlaceHolderBaseUrl {
-    /*
+public class GetRequest21TestData extends JsonPlaceHolderBaseUrl {
+
+     /*
 https://jsonplaceholder.typicode.com/todos/2
 2) respose body'de,
         "completed": değerinin false
@@ -23,23 +25,17 @@ https://jsonplaceholder.typicode.com/todos/2
         "Server" değerinin "cloudflare" olduğunu test edin…
 */
     @Test
-    public void test20() {
-        //1-)URL OLUSTUR
+    public void test21(){
+        //1)URL OLUSTUR
         spec04.pathParams("1", "todos", "2", "2");
-        //2-)EXPECTED DATA OLUSTUR
-        HashMap<String, Object> expectedData = new HashMap<String, Object>();
-        expectedData.put("statusCode", 200);
-        expectedData.put("completed", false);
-        expectedData.put("title", "quis ut nam facilis et officia qui");
-        expectedData.put("userId", 1);
-        expectedData.put("via", "1.1 vegur");
-        expectedData.put("server", "cloudflare");
-
-        //3-)REQUEST VE RESPONE
+        //2) EXPOECTED DATA OLUSTUR
+        JsonPlaceHolderTestData expectedDataObject=new JsonPlaceHolderTestData();
+        HashMap<String, Object> expectedData = (HashMap<String, Object>) expectedDataObject.setUpTestData();
+        //3) REQUEST AND RESPOND
         Response response = given().spec(spec04).when().get("/{1}/{2}");
         response.prettyPeek();
-
-        //4-)DOGRULAMA
+        //4)DOGRULAMA
+        response.then().assertThat().statusCode((Integer)expectedData.get("statusCode"));
         //Matchers ile
         response.then().assertThat().statusCode((Integer) expectedData.get("statusCode"))
                 .headers("via", equalTo(expectedData.get("via")),
@@ -64,6 +60,11 @@ https://jsonplaceholder.typicode.com/todos/2
         assertEquals(expectedData.get("userId"), actualData.get("userId"));
         assertEquals(expectedData.get("title"), actualData.get("title"));
         assertEquals(expectedData.get("completed"), actualData.get("completed"));
+
+
+
+
+
 
     }
 }
