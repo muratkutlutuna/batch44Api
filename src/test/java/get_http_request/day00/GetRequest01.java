@@ -1,5 +1,6 @@
 package get_http_request.day00;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,9 +12,11 @@ public class GetRequest01 {
     public void test01(){
         String url = "https://restful-booker.herokuapp.com/booking";
 
-        Response response =given().when().get(url);
+        Response response =given().accept(ContentType.JSON).when().get(url);//contenttype i json yapmna islemini sadece icerigi json formatinda istedigimizi belirtmek icin kullaniyoruz
         //System.out.println("response = " + response.asPrettyString());
         //response.prettyPrint();
+        //Response response =given().accept("application/json").when().get(url);
+
 
         System.out.println("response.statusCode() = " + response.statusCode());
         System.out.println("response.contentType() = " + response.contentType());

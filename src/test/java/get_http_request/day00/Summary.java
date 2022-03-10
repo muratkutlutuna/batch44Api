@@ -22,10 +22,11 @@ public class Summary {
 
 6) API Testlerinde response doğrulma nasıl yapılır?
    a) TestNG ve JUnit Assert'leri kullanılarak
-   b) assertThat()
-   c) Json Path
-   d) Matchers Class
-   e)
+   b) Json Path
+   c) Matchers Class, assertThat()
+   d) De-Serialization
+        HashMap<String,Object> actualData = response.as(HashMap.class);
+   e) JSON Object
    f)
    g)
    h)
