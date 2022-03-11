@@ -1,5 +1,7 @@
 package test_data;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +15,14 @@ public class JsonPlaceHolderTestData {
         expectedData.put("via", "1.1 vegur");
         expectedData.put("server", "cloudflare");
         return expectedData;
+    }
+    public JSONObject requestedAndExpectedData(){
+        JSONObject data = new JSONObject();
+        data.put("userId", 55);
+        data.put("title", "Tidy your room");
+        data.put("completed", false);
+        data.put("statusCode", 201);
+        return data;
     }
 
 }

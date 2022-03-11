@@ -1,5 +1,7 @@
 package test_data;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -42,6 +44,26 @@ olduğunu test edin.
         expectedData.put("sondanucuncucalisaninmaasi", 675000);
         expectedData.put("arananyaslar", yaslar);
         expectedData.put("onuncu", onuncu);
+        return expectedData;
+    }
+
+    public JSONObject setUpRequestBody() {
+        JSONObject requestBody = new JSONObject();
+        requestBody.put("name", "Ali Can");
+        requestBody.put("salary", "2000");
+        requestBody.put("age", "40");
+        return requestBody;
+    }
+    public JSONObject postTestData(){
+        JSONObject data = new JSONObject();
+        data.put("name","Ali Can");
+        data.put("salary","2000");
+        data.put("age","40");
+        data.put("id",0);
+        JSONObject expectedData = new JSONObject();
+        expectedData.put("status", "success");
+        expectedData.put("data", data);
+        expectedData.put("message", "Successfully! Record has been added.");
         return expectedData;
     }
 }
