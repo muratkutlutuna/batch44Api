@@ -42,9 +42,11 @@ public class PostRequest02 extends DummyBaseUrl {
         System.out.println("requestData = " + requestData);
         //3) REQUEST VE RESPONSE
         Response response = given()
-                .contentType(ContentType.JSON)//burayi .accept(ContentType.JSON) seklinde de yazabilirdim ama burada request datayi girmemis oluyor
+                .contentType(ContentType.JSON)//burayi .accept(ContentType.JSON) seklinde de yazabilirdim ama burada
+                // request datayi girmemis oluyor
                 .spec(spec02)
-                .body(requestData.toString())//Post isleminde map kullandigimizda toString e gerek yok, ama ben burda JSONObject kullandim o yuzden gerek var.aksi halde testin ciktisinda data'da emptu:"false" getiriyot
+                .body(requestData.toString())//Post isleminde map kullandigimizda toString e gerek yok, ama ben burda
+                // JSONObject kullandim o yuzden gerek var.aksi halde testin ciktisinda data'da emptu:"false" getiriyot
                 .when()
                 .post("/{1}/{2}/{3}");
         response.prettyPeek();

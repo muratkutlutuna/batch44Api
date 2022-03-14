@@ -16,6 +16,11 @@ public class JsonPlaceHolderTestData {
         expectedData.put("server", "cloudflare");
         return expectedData;
     }
+    //{
+    //"userId": 21,
+    //"title": "Wash the dishes",
+    //"completed": false
+    //}
     public JSONObject requestedAndExpectedData(){
         JSONObject data = new JSONObject();
         data.put("userId", 55);
@@ -24,6 +29,45 @@ public class JsonPlaceHolderTestData {
         data.put("statusCode", 201);
         return data;
     }
-
+//Dönen response un status kodunun 200 ve body kısmının aşağıdaki gibi olduğunu test edin
+//{
+//"userId": 21,
+//"title": "Wash the dishes",
+//"completed": false,
+//"id": 198
+//}
+    //PutRequest01
+    public JSONObject setUpPutData(){
+        JSONObject expectedRequest = new JSONObject();
+        expectedRequest.put("userId", 21);
+        expectedRequest.put("title", "Wash the dishes");
+        expectedRequest.put("completed", false);
+        return expectedRequest;
+    }
+    // https://jsonplaceholder.typicode.com/todos/198 URL ine aşağıdaki body gönderdiğimde
+    //     {
+    //        "title": "Batch44"
+    //       }
+    //PatchRequest01
+    public JSONObject setUpPatchRequestData(){
+        JSONObject expectedRequest = new JSONObject();
+        expectedRequest.put("title","Batch44");
+        return expectedRequest;
+    }
+//   {
+//   "userId": 10,
+//   "title": "Batch44"
+//   "completed": true,
+//   "id": 198
+//   }
+    //PatchRequest01
+    public JSONObject patchExpectedData(){
+        JSONObject expectedData = new JSONObject();
+        expectedData.put("userId", 10);
+        expectedData.put("title", "Batch44");
+        expectedData.put("completed", true);
+        expectedData.put("id", 198);
+        return expectedData;
+    }
 }
 

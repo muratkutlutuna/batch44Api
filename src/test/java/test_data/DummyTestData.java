@@ -66,4 +66,16 @@ olduğunu test edin.
         expectedData.put("message", "Successfully! Record has been added.");
         return expectedData;
     }
+
+    //"status": "success",
+    //"data": "2",
+    //"message": "Successfully! Record has been deleted"
+    //DeleteRequest01
+    public JSONObject setUpDeleteExpectedData() {
+        JSONObject expectedData = new JSONObject();
+        expectedData.put("status", "success");
+        expectedData.put("data", "2");
+        expectedData.put("message", "Successfully! Record has been deleted");
+        return expectedData;
+    }
 }
