@@ -25,7 +25,7 @@ public class BookingResponsePojo {
 
     //1) private değişkenleri oluştur.
     private int bookingId;
-    private BookingPojo bookingPojo;
+    private BookingPojo booking;
 
 
 }

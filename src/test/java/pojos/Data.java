@@ -1,11 +1,13 @@
 package pojos;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
+
 @JsonIgnoreProperties(ignoreUnknown = true)// bu kismi degerini yamadigimiz urunler icin yazdik
-@Data
+@lombok.Data
 @AllArgsConstructor
-public class Data1 {
+@NoArgsConstructor
+public class Data {
     /*
   "data": {
 "id": 1,
